@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return inertia('Home');
+    return Inertia::render('Home', [
+        'name' => 'Preston Foshee',
+        'technologies' => [
+            'Laravel',
+            'Inertia',
+            'Vue',
+        ],
+    ]);
+    // return inertia('Home');
+});
+
+Route::get('/users', function () {
+    return Inertia::render('Users');
+});
+
+Route::get('/posts', function () {
+    return Inertia::render('Posts');
 });
