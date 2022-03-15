@@ -27,9 +27,18 @@ Route::get('/', function () {
 });
 
 Route::get('/users', function () {
-    return Inertia::render('Users');
+    return Inertia::render('Users', [
+        'time' => now()->toTimeString()
+    ]);
 });
 
 Route::get('/posts', function () {
     return Inertia::render('Posts');
+});
+
+Route::post('/logout', function () {
+    // $message = 'logging the user out';
+    // return json_encode($message);
+    $res = request('red');
+    return json_encode($res);
 });

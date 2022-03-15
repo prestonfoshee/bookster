@@ -5,5 +5,5 @@ import Nav from '../Shared/Nav.vue'
 
 <template>
     <Nav />
-    <h1>Posts</h1>
+    <h1 class="text-4xl font-bold mb-8">Posts</h1>
 </template>
