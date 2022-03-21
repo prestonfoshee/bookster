@@ -1,14 +1,16 @@
 <script setup>
+import { Head } from '@inertiajs/inertia-vue3'
 import Nav from './Nav.vue'
-
 
 </script>
 
 <template>
-    <section class="p-6 bg-gray-400">
+    <Head title="Learning Inertia" />
+    <section class="p-6 bg-gray-300">
         <header class="flex justify-between">
             <div class="flex items-center">
                 <h1 class="text-lg font-bold">Learning Inertia</h1>
+                <span class="text-sm ml-4">Welcome back</span>
             </div>
             <Nav />
         </header>
