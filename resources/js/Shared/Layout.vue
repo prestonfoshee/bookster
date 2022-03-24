@@ -2,6 +2,10 @@
 import { Head } from '@inertiajs/inertia-vue3'
 import Nav from './Nav.vue'
 
+const props = defineProps({
+    auth: Object
+})
+
 </script>
 
 <template>
@@ -10,7 +14,7 @@ import Nav from './Nav.vue'
         <header class="flex justify-between">
             <div class="flex items-center">
                 <h1 class="text-lg font-bold">Learning Inertia</h1>
-                <span class="text-sm ml-4">Welcome back</span>
+                <span class="text-sm ml-4">Welcome back, {{ auth.user.username }}</span>
             </div>
             <Nav />
         </header>
