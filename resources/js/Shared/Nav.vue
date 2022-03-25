@@ -12,18 +12,13 @@ import NavLink from '../Shared/NavLink.vue'
                 </NavLink>
             </li>
             <li>
-                <NavLink href="/users" :active="$page.component === 'Users/Index' || $page.component === 'Users/Create'">
-                    Users
-                </NavLink>
-            </li>
-            <li>
-                <NavLink href="/posts" :active="$page.component ==='Posts'">
-                    Posts
+                <NavLink href="/library" :active="$page.component === 'Library'">
+                    Library
                 </NavLink>
             </li>
             <li>
                 <NavLink href="/stories" :active="$page.component ==='Stories/Index'">
-                    stories
+                    Stories
                 </NavLink>
             </li>
         </ul>

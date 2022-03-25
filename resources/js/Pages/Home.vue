@@ -5,9 +5,7 @@ defineProps({ name: String, technologies: Array })
 
 <template>
     <Head title="Home" />
-    <h1 class="text-4xl text-main-blue font-poppins font-bold mb-8">Hello World!</h1>
-    <p>My name is: {{ name }}</p>
-    <ul>
-        <li v-for="technology in technologies" :key="technology.index" v-text="technology"></li>
-    </ul>
+    <section class="max-w-xl">
+        <h1 class="text-6xl text-center text-main-green font-poppins font-bold">The Book App for the Modern World.</h1>
+    </section>
 </template>

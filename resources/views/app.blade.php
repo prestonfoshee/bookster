@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
     @inertiaHead
   </head>
-  <body class="bg-main-off-white">
+  <body>
     @inertia
   </body>
 </html>
