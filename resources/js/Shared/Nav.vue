@@ -5,7 +5,7 @@ import NavLink from '../Shared/NavLink.vue'
 
 <template>
     <nav>
-        <ul class="flex space-x-6">
+        <ul class="flex space-x-10">
             <li>
                 <NavLink href="/" :active="$page.component ==='Home'">
                     Home
@@ -22,8 +22,8 @@ import NavLink from '../Shared/NavLink.vue'
                 </NavLink>
             </li>
             <li>
-                <NavLink href="/logout" method="post" as="button">
-                    Log Out
+                <NavLink href="/stories" :active="$page.component ==='Stories/Index'">
+                    stories
                 </NavLink>
             </li>
         </ul>

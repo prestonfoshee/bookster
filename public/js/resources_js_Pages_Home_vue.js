@@ -44,7 +44,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-3xl mb-8"
+  "class": "text-4xl text-main-blue font-poppins font-bold mb-8"
 }, "Hello World!", -1
 /* HOISTED */
 );
