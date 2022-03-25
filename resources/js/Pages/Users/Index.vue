@@ -7,7 +7,8 @@ import Pagination from '../../Shared/Pagination.vue'
 const props = defineProps({
     users: Object,
     filters: Object,
-    })
+    can: Object
+})
 
 const search = ref(props.filters.search)
 
@@ -24,7 +25,7 @@ watch(search, debounce((value) => {
     <div class="flex justify-between mb-8">
         <div class="flex items-center">
             <h1 class="text-3xl font-bold">Users</h1>
-            <Link href="/users/create" class="text-indigo-600 hover:text-indigo-900 text-sm ml-6">New User</Link>
+            <Link v-if="can.createUser" href="/users/create" class="text-indigo-600 hover:text-indigo-900 text-sm ml-6">New User</Link>
         </div>
         <input v-model="search" type="text" placeholder="Search..." class="border px-2 rounded-lg">
     </div>
@@ -35,7 +36,7 @@ watch(search, debounce((value) => {
             class="flex justify-between border-b-2 border-gray-200 px-4">
             <li class="p-3 text-center">{{ user.name }}</li>
             <li class="p-3 text-center my-auto">
-                <a :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                <Link v-if="user.can.edit" :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">Edit</Link>
             </li>
         </ul>
     </div>
