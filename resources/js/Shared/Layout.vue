@@ -10,13 +10,14 @@ const props = defineProps({
 
 <template>
     <Head title="Learning Inertia" />
-    <section class="p-6 bg-gray-300">
-        <header class="flex justify-between">
-            <div class="flex items-center">
-                <h1 class="text-lg font-bold">Learning Inertia</h1>
-                <span class="text-sm ml-4">Welcome back, {{ auth.user.username }}</span>
+    <section class="px-16 py-6 border-b border-main-blue">
+        <header class="flex items-center">
+            <div class="flex items-center space-x-8">
+                <div class="border-r border-main-blue px-6">
+                    <h1 class="text-4xl text-main-blue font-poppins font-bold">Bookster</h1>
+                </div>
+                <Nav />
             </div>
-            <Nav />
         </header>
     </section>
 
