@@ -13,7 +13,7 @@ Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth');
 
 Route::get('/users/create', function () {
     return Inertia::render('Users/Create');
-})->can('create', 'App\Models\User'); // or ->middleware('can:create, App\Models\User')
+}); // or ->middleware('can:create, App\Models\User')
 
 Route::post('/users', function (Request $request) {
     $attributes = $request->validate([
@@ -27,17 +27,11 @@ Route::post('/users', function (Request $request) {
     return redirect('/users');
 });
 
+Route::get('/', function () {
+    return Inertia::render('Home');
+});
+
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return Inertia::render('Home', [
-            'name' => 'Preston Foshee',
-            'technologies' => [
-                'Laravel',
-                'Inertia',
-                'Vue',
-            ],
-        ]);
-    });
 
     Route::get('/users', function (Request $request) {
         return Inertia::render('Users/Index', [

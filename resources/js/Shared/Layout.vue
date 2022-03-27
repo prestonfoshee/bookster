@@ -26,17 +26,20 @@ const props = defineProps({
             </div>
 
             <div class="flex space-x-10">
-                <AuthButton :text="'Login'">
+                <AuthButton href="/login" :text="'Login'">
                     Login
                 </AuthButton>
-                <AuthButton :text="'Sign up'">
+                <AuthButton href="/users/create" :text="'Sign up'">
                     Sign up
+                </AuthButton>
+                <AuthButton href="/logout" :text="'Sign up'" as="button" method="post">
+                    Logout
                 </AuthButton>
             </div>
         </section>
 
         <section class="p-6">
-            <div class=" max-w-screen-2xl border border-red-500">
+            <div class=" max-w-screen-2xl mx-auto border border-red-500">
                 <slot />
             </div>
         </section>
