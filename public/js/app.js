@@ -40,9 +40,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _Nav_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav.vue */ "./resources/js/Shared/Nav.vue");
-/* harmony import */ var _AuthButton_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AuthButton.vue */ "./resources/js/Shared/AuthButton.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _Nav_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav.vue */ "./resources/js/Shared/Nav.vue");
+/* harmony import */ var _AuthButton_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AuthButton.vue */ "./resources/js/Shared/AuthButton.vue");
+
 
 
 
@@ -56,9 +58,10 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
     var __returned__ = {
       props: props,
-      Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Head,
-      Nav: _Nav_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-      AuthButton: _AuthButton_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+      computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
+      usePage: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.usePage,
+      Nav: _Nav_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      AuthButton: _AuthButton_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -215,37 +218,36 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_7 = {
-  "class": "flex space-x-10"
+  "class": "flex items-center space-x-8"
+};
+var _hoisted_8 = {
+  key: 0,
+  "class": "text-main-orange text-sm font-poppins"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Login ");
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Login ");
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sign up ");
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sign up ");
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Logout ");
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Logout ");
 
-var _hoisted_11 = {
+var _hoisted_12 = {
   "class": "p-6"
 };
-var _hoisted_12 = {
-  "class": "max-w-screen-2xl mx-auto border border-red-500"
+var _hoisted_13 = {
+  "class": "max-w-screen-xl mx-auto"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Head"], {
+  var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Learning Inertia"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Nav"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthButton"], {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Nav"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [$props.auth ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_8, "Welcome back, " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.auth.user.username), 1
+  /* TEXT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$props.auth ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AuthButton"], {
+    key: 1,
     href: "/login",
     text: 'Login'
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_8];
-    }),
-    _: 1
-    /* STABLE */
-
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthButton"], {
-    href: "/users/create",
-    text: 'Sign up'
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_9];
@@ -253,11 +255,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthButton"], {
-    href: "/logout",
-    text: 'Sign up',
-    as: "button",
-    method: "post"
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$props.auth ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AuthButton"], {
+    key: 2,
+    href: "/signup",
+    text: 'Sign up'
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_10];
@@ -265,7 +266,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])])], 64
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.auth ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AuthButton"], {
+    key: 3,
+    href: "/logout",
+    text: 'Sign up',
+    as: "button",
+    method: "post"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_11];
+    }),
+    _: 1
+    /* STABLE */
+
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -441,7 +455,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }).use(plugin).component('Link', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link).component('Head', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Head).mount(el);
   },
   title: function title(_title) {
-    return "Learning Inertia - ".concat(_title);
+    return "Bookster - ".concat(_title);
   }
 });
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__.InertiaProgress.init({
@@ -719,13 +733,29 @@ var map = {
 		"./resources/js/Pages/Auth/Login.vue",
 		"resources_js_Pages_Auth_Login_vue"
 	],
-	"./Home": [
-		"./resources/js/Pages/Home.vue",
-		"resources_js_Pages_Home_vue"
+	"./Home/HomeButton": [
+		"./resources/js/Pages/Home/HomeButton.vue",
+		"resources_js_Pages_Home_HomeButton_vue"
 	],
-	"./Home.vue": [
-		"./resources/js/Pages/Home.vue",
-		"resources_js_Pages_Home_vue"
+	"./Home/HomeButton.vue": [
+		"./resources/js/Pages/Home/HomeButton.vue",
+		"resources_js_Pages_Home_HomeButton_vue"
+	],
+	"./Home/Index": [
+		"./resources/js/Pages/Home/Index.vue",
+		"resources_js_Pages_Home_Index_vue"
+	],
+	"./Home/Index.vue": [
+		"./resources/js/Pages/Home/Index.vue",
+		"resources_js_Pages_Home_Index_vue"
+	],
+	"./Home/MainContent": [
+		"./resources/js/Pages/Home/MainContent.vue",
+		"resources_js_Pages_Home_MainContent_vue"
+	],
+	"./Home/MainContent.vue": [
+		"./resources/js/Pages/Home/MainContent.vue",
+		"resources_js_Pages_Home_MainContent_vue"
 	],
 	"./Posts": [
 		"./resources/js/Pages/Posts.vue",

@@ -20,7 +20,7 @@ createInertiaApp({
       .component('Head', Head)
       .mount(el)
   },
-  title: title => `Learning Inertia - ${title}`
+  title: title => `Bookster - ${title}`
 })
 
 InertiaProgress.init({

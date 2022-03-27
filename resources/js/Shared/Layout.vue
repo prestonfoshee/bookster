@@ -1,5 +1,6 @@
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3'
+import { computed } from 'vue'
+import { usePage } from '@inertiajs/inertia-vue3'
 import Nav from './Nav.vue'
 import AuthButton from './AuthButton.vue'
 
@@ -25,21 +26,22 @@ const props = defineProps({
                 </div>
             </div>
 
-            <div class="flex space-x-10">
-                <AuthButton href="/login" :text="'Login'">
+            <div class="flex items-center space-x-8">
+                <span v-if="auth" class="text-main-orange text-sm font-poppins">Welcome back, {{ auth.user.username }}</span>
+                <AuthButton v-if="!auth" href="/login" :text="'Login'">
                     Login
                 </AuthButton>
-                <AuthButton href="/users/create" :text="'Sign up'">
+                <AuthButton v-if="!auth" href="/signup" :text="'Sign up'">
                     Sign up
                 </AuthButton>
-                <AuthButton href="/logout" :text="'Sign up'" as="button" method="post">
+                <AuthButton v-if="auth" href="/logout" :text="'Sign up'" as="button" method="post">
                     Logout
                 </AuthButton>
             </div>
         </section>
 
         <section class="p-6">
-            <div class=" max-w-screen-2xl mx-auto border border-red-500">
+            <div class=" max-w-screen-xl mx-auto">
                 <slot />
             </div>
         </section>
