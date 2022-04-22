@@ -19,7 +19,6 @@ const submit = () => {
 <template>
     <Head title="Login" />
 
-    <!-- <main class="grid place-items-center min-h-screen"> -->
     <main class="flex items-center justify-center min-h-screen">
         <section class="bg-white p-8 rounded-xl max-w-md mx-auto mt-8 border border-gray-300">
             <h1 class="text-3xl mb-6">Login</h1>

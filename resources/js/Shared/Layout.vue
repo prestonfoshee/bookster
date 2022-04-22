@@ -12,6 +12,9 @@ const props = defineProps({
 
 <template>
     <Head title="Learning Inertia" />
+    <div class="flex justify-center relative">
+        <div v-if="$page.props.flash.message" class="absolute flex justify-center items-center text-center whitespace-nowrap top-32 text-sm font-poppins bg-stone-200 border-2 border-main-orange text-main-orange rounded shadow-md px-12 py-4">{{ $page.props.flash.message }}</div>
+    </div>
     <main class="bg-main-off-white min-h-screen space-y-20">
         <section class="flex justify-between items-center px-16 py-6 border-b border-main-blue">
             <div class="flex items-center">

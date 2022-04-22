@@ -71,3 +71,6 @@ Route::middleware('auth')->group(function () {
     // })->name('edit');
 });
 
+Route::fallback(function () {
+    return redirect()->back();
+});

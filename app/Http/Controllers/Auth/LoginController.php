@@ -23,7 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended();
+            return redirect()->intended()->with('message', 'Logged in');
         }
 
         return back()->withErrors([
@@ -34,6 +34,6 @@ class LoginController extends Controller
     public function destroy() {
         Auth::logout();
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Logged out');
     }
 }
