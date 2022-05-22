@@ -149,7 +149,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center justify-center border border-main-orange px-4 py-2 max-h-8 text-xs font-poppins rounded", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center justify-center border border-main-orange px-4 py-2 max-h-8 text-xs font-poppins rounded whitespace-nowrap", {
       'border border-main-orange text-main-orange': $props.text === 'Login',
       'bg-main-orange text-main-off-white': $props.text === 'Sign up'
     }])
@@ -188,13 +188,13 @@ var _hoisted_2 = {
   "class": "absolute flex justify-center items-center text-center whitespace-nowrap top-32 text-sm font-poppins bg-stone-200 border-2 border-main-orange text-main-orange rounded shadow-md px-12 py-4"
 };
 var _hoisted_3 = {
-  "class": "bg-main-off-white min-h-screen space-y-20"
+  "class": "min-h-screen space-y-10 bg-gradient-to-b from-gray-900 to-gray-600"
 };
 var _hoisted_4 = {
-  "class": "flex justify-between items-center px-16 py-6 border-b border-main-blue"
+  "class": "flex flex-wrap justify-around items-center px-4 py-6 border-b border-main-blue gap-y-4 md:gap-y-0 md:justify-between md:px-16"
 };
 var _hoisted_5 = {
-  "class": "flex items-center"
+  "class": "flex justify-center items-center gap-x-3 md:gap-x-0"
 };
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -217,19 +217,19 @@ var _hoisted_7 = {
 };
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "border-r border-main-blue px-6"
+  "class": "border-none border-main-blue md:px-6 md:border-r"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-4xl text-main-blue font-poppins font-bold"
+  "class": "text-3xl text-main-blue font-poppins font-bold md:text-4xl"
 }, "Bookster")], -1
 /* HOISTED */
 );
 
 var _hoisted_9 = {
-  "class": "flex items-center space-x-8"
+  "class": "flex justify-center items-center gap-x-4"
 };
 var _hoisted_10 = {
   key: 0,
-  "class": "text-main-orange text-sm font-poppins"
+  "class": "text-main-orange text-sm text-center md:text-left font-poppins"
 };
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Login ");
@@ -239,7 +239,7 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Logout ");
 
 var _hoisted_14 = {
-  "class": "p-6"
+  "class": "p-2 md:p-6"
 };
 var _hoisted_15 = {
   "class": "max-w-screen-xl mx-auto"
@@ -309,22 +309,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
+  "class": "hidden lg:block"
+};
+var _hoisted_2 = {
   "class": "flex space-x-10"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Home ");
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Home ");
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Library ");
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Library ");
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Stories ");
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Stories ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavLink"], {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavLink"], {
     href: "/",
     active: _ctx.$page.component === 'Home'
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_2];
+      return [_hoisted_3];
     }),
     _: 1
     /* STABLE */
@@ -336,7 +339,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     active: _ctx.$page.component === 'Library'
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_3];
+      return [_hoisted_4];
     }),
     _: 1
     /* STABLE */
@@ -348,7 +351,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     active: _ctx.$page.component === 'Stories/Index'
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_4];
+      return [_hoisted_5];
     }),
     _: 1
     /* STABLE */

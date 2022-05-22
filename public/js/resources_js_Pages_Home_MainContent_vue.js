@@ -88,7 +88,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center justify-center border border-main-orange px-6 py-3 text-sm font-poppins rounded-lg hover:scale-110 transition duration-300", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center justify-center border border-main-orange px-6 py-3 text-sm font-poppins rounded-lg hover:scale-110 transition duration-100", {
       'border border-main-orange text-main-orange': $props.type === 'story',
       'bg-main-orange text-main-off-white': $props.type === 'books'
     }])
@@ -123,7 +123,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-6xl text-center text-main-green font-poppins font-bold"
+  "class": "text-4xl text-center text-main-green font-poppins font-bold leading-snug md:text-6xl md:leading-snug"
 }, "The Book App for the Modern World.", -1
 /* HOISTED */
 );
@@ -131,7 +131,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "max-w-md"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-xl text-center text-main-black font-poppins"
+  "class": "text-xl text-center text-main-black font-poppins mb-2"
 }, " Keep in touch with friends and show off your latest reads in your library. Have real discussions with fellow book lovers. ")], -1
 /* HOISTED */
 );

@@ -45,7 +45,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center justify-center border border-main-orange px-6 py-3 text-sm font-poppins rounded-lg hover:scale-110 transition duration-300", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center justify-center border border-main-orange px-6 py-3 text-sm font-poppins rounded-lg hover:scale-110 transition duration-100", {
       'border border-main-orange text-main-orange': $props.type === 'story',
       'bg-main-orange text-main-off-white': $props.type === 'books'
     }])
