@@ -8,9 +8,9 @@ defineProps({
 
 <template>
     <Link
-    class="flex items-center justify-center border border-main-orange px-4 py-2 max-h-8 text-xs font-poppins rounded whitespace-nowrap"
-    :class="{ 'border border-main-orange text-main-orange': text === 'Login',
-    'bg-main-orange text-main-off-white': text === 'Sign up' }"
+    class="flex items-center justify-center border-2 border-main-blue px-4 py-2 text-sm font-poppins rounded whitespace-nowrap hover:scale-105 transition duration-100"
+    :class="{ 'border border-main-blue text-main-blue': text === 'Login',
+    'bg-main-blue text-main-off-white': text === 'Sign up' }"
     >
         <slot />
     </Link>

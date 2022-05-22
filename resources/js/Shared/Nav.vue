@@ -5,7 +5,7 @@ import NavLink from '../Shared/NavLink.vue'
 
 <template>
     <nav class="hidden lg:block">
-        <ul class="flex space-x-10">
+        <ul class="flex space-x-10 justify-center items-center">
             <li>
                 <NavLink href="/" :active="$page.component ==='Home'">
                     Home
