@@ -149,7 +149,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center justify-center border-2 border-main-blue px-4 py-2 text-sm font-poppins rounded whitespace-nowrap hover:scale-105 transition duration-100", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center justify-center border-2 border-main-blue px-4 py-2 text-sm font-poppins rounded-sm whitespace-nowrap hover:scale-105 transition duration-100", {
       'border border-main-blue text-main-blue': $props.text === 'Login',
       'bg-main-blue text-main-off-white': $props.text === 'Sign up'
     }])
@@ -759,13 +759,13 @@ var map = {
 		"./resources/js/Pages/Home/ContentHeader.vue",
 		"resources_js_Pages_Home_ContentHeader_vue"
 	],
-	"./Home/ContentSubheader": [
-		"./resources/js/Pages/Home/ContentSubheader.vue",
-		"resources_js_Pages_Home_ContentSubheader_vue"
+	"./Home/FindBooks": [
+		"./resources/js/Pages/Home/FindBooks.vue",
+		"resources_js_Pages_Home_FindBooks_vue"
 	],
-	"./Home/ContentSubheader.vue": [
-		"./resources/js/Pages/Home/ContentSubheader.vue",
-		"resources_js_Pages_Home_ContentSubheader_vue"
+	"./Home/FindBooks.vue": [
+		"./resources/js/Pages/Home/FindBooks.vue",
+		"resources_js_Pages_Home_FindBooks_vue"
 	],
 	"./Home/HomeButton": [
 		"./resources/js/Pages/Home/HomeButton.vue",
@@ -782,6 +782,14 @@ var map = {
 	"./Home/Index.vue": [
 		"./resources/js/Pages/Home/Index.vue",
 		"resources_js_Pages_Home_Index_vue"
+	],
+	"./Home/StoriesAndLibraries": [
+		"./resources/js/Pages/Home/StoriesAndLibraries.vue",
+		"resources_js_Pages_Home_StoriesAndLibraries_vue"
+	],
+	"./Home/StoriesAndLibraries.vue": [
+		"./resources/js/Pages/Home/StoriesAndLibraries.vue",
+		"resources_js_Pages_Home_StoriesAndLibraries_vue"
 	],
 	"./Posts": [
 		"./resources/js/Pages/Posts.vue",
