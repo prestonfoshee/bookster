@@ -215,7 +215,7 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-3xl font-poppins font-bold md:text-4xl"
+  "class": "text-3xl text-alt-black font-poppins font-bold md:text-4xl"
 }, "Bookster", -1
 /* HOISTED */
 );
@@ -766,6 +766,14 @@ var map = {
 	"./Home/FindBooks.vue": [
 		"./resources/js/Pages/Home/FindBooks.vue",
 		"resources_js_Pages_Home_FindBooks_vue"
+	],
+	"./Home/Footer": [
+		"./resources/js/Pages/Home/Footer.vue",
+		"resources_js_Pages_Home_Footer_vue"
+	],
+	"./Home/Footer.vue": [
+		"./resources/js/Pages/Home/Footer.vue",
+		"resources_js_Pages_Home_Footer_vue"
 	],
 	"./Home/HomeButton": [
 		"./resources/js/Pages/Home/HomeButton.vue",

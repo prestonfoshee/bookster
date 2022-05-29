@@ -165,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex flex-col items-center justify-center gap-y-6 border-2 border-main-blue rounded-3xl p-8 w-80"
+  "class": "flex flex-col items-center justify-center gap-y-6 border-4 border-main-green rounded-3xl p-8 w-80"
 };
 var _hoisted_2 = {
   "class": "flex flex-col gap-y-3 text-center"

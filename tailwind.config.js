@@ -10,7 +10,8 @@ module.exports = {
             'main-orange': '#F97068',
             'main-green': '#2FBF71',
             'main-off-white': '#EDF2EF',
-            'main-black': '#07020D'
+            'main-black': '#07020D',
+            'alt-black': '#212738',
         },
     },
   },

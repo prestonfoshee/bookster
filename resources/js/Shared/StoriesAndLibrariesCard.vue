@@ -1,5 +1,5 @@
 <template>
-    <main class="flex flex-col items-center justify-center gap-y-6 border-2 border-main-blue rounded-3xl p-8 w-80">
+    <main class="flex flex-col items-center justify-center gap-y-6 border-4 border-main-green rounded-3xl p-8 w-80">
         <div>
             <stories-card-logo v-if="type === 'stories'" />
             <libraries-card-logo v-else-if="type === 'libraries'" />
