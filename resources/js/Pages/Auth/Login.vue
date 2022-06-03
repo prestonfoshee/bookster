@@ -54,7 +54,7 @@ const submit = () => {
 
                 <div class="flex justify-center">
                     <button type="submit"
-                        class="bg-main-orange text-main-off-white rounded py-2 px-4 border hover:bg-main-off-white hover:border-main-orange hover:text-main-orange transition duration-100"
+                        class="bg-main-orange text-main-off-white rounded py-2 px-4 border border-transparent hover:bg-transparent hover:border-main-orange hover:text-main-orange transition duration-100"
                         :class="{ 'hover:cursor-not-allowed': form.processing }"
                         :disabled="form.processing"
                     >

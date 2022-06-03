@@ -18,11 +18,7 @@
                 <find-books />
             </section>
         </div>
-        <div class="bg-main-blue">
-            <section class="mx-auto py-14">
-                <Footer />
-            </section>
-        </div>
+
     </main>
 </template>
 

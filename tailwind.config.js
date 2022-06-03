@@ -12,6 +12,7 @@ module.exports = {
             'main-off-white': '#EDF2EF',
             'main-black': '#07020D',
             'alt-black': '#212738',
+            'gradient-teal': '#99F6E4',
         },
     },
   },

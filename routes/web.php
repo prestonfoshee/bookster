@@ -6,13 +6,16 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use App\Models\User;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\StoryController;
 
 Route::get('/', function () {
     return Inertia::render('Home/Index');
 });
 
-Route::get('/posts', function () {
-    return Inertia::render('Posts');
+Route::get('/stories', [StoryController::class, 'index']);
+
+Route::get('/story', function () {
+    return Inertia::render('Stories/StoryPost');
 });
 
 Route::middleware('guest')->group(function () {
@@ -30,7 +33,11 @@ Route::middleware('guest')->group(function () {
             'password' => 'required',
         ]);
 
-        User::create($attributes);
+        $user = User::create($attributes);
+
+        Auth::login($user);
+
+        return redirect()->intended()->with('message', 'Account created');
 
         return redirect('/users');
     });

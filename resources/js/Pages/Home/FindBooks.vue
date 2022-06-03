@@ -1,14 +1,14 @@
 <template>
     <main class="flex flex-col gap-y-16">
-        <div class="flex flex-col gap-y-6 text-center border-b-2 border-main-off-white pb-5 w-full md:flex-row md:justify-between md:items-center md:text-left md:gap-y-0">
-            <h1 class="text-main-off-white text-4xl font-bold font-poppins tracking-wide">Find exactly what you're looking for.</h1>
+        <div class="flex border-b-2 border-main-off-white pb-5 mx-4 justify-between md:items-center md:text-left md:gap-y-0">
+            <h1 class="text-main-off-white text-lg font-bold font-poppins tracking-wide md:text-4xl">Find exactly what you're looking for.</h1>
             <Link href="" class="flex items-center gap-x-3 text-main-off-white text-lg font-poppins whitespace-nowrap mt-2">
                 <arrow-icon />
                 <span>Find a book</span>
             </Link>
         </div>
-        <div class="flex justify-between items-center gap-x-24">
-            <div class="flex flex-col gap-y-9 text-main-off-white">
+        <div class="flex flex-col items-center gap-x-24 md:flex-row md:justify-between">
+            <div class="flex flex-col items-center text-center gap-y-9 text-main-off-white px-4">
                 <div class="flex flex-col gap-y-3">
                     <h2 class="text-2xl font-semibold font-poppins tracking-wide">Recommendations</h2>
                     <p class="text-lg font-poppins">

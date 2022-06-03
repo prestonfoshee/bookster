@@ -154,7 +154,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["bg-main-orange text-main-off-white rounded py-2 px-4 border hover:bg-main-off-white hover:border-main-orange hover:text-main-orange transition duration-100", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["bg-main-orange text-main-off-white rounded py-2 px-4 border border-transparent hover:bg-transparent hover:border-main-orange hover:text-main-orange transition duration-100", {
       'hover:cursor-not-allowed': $setup.form.processing
     }]),
     disabled: $setup.form.processing
