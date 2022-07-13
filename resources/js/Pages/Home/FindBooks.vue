@@ -8,7 +8,7 @@
             </Link>
         </div>
         <div class="flex flex-col items-center gap-x-24 md:flex-row md:justify-between">
-            <div class="flex flex-col items-center text-center gap-y-9 text-main-off-white px-4">
+            <div class="flex flex-col items-center gap-y-9 text-main-off-white px-4">
                 <div class="flex flex-col gap-y-3">
                     <h2 class="text-2xl font-semibold font-poppins tracking-wide">Recommendations</h2>
                     <p class="text-lg font-poppins">

@@ -12,7 +12,8 @@ class StoryController extends Controller
         {
 
             return Inertia::render('Stories/Index', [
-                'posts' => $story->with('category')->select('title', 'excerpt', 'body', 'slug', 'category_id')->get()
+                // 'posts' => $story->with('category')->select('title', 'excerpt', 'body', 'slug', 'category_id')->get()
+                'stories' => $story->with('category')->get()
             ]);
         }
 }
