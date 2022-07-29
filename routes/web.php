@@ -14,10 +14,6 @@ Route::get('/', function () {
 
 Route::get('/stories', [StoryController::class, 'index']);
 
-Route::get('/story', function () {
-    return Inertia::render('Stories/StoryPost');
-});
-
 Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'create'])->name('login');
     Route::post('login', [LoginController::class, 'store']);
@@ -42,6 +38,8 @@ Route::middleware('guest')->group(function () {
         return redirect('/users');
     });
 });
+
+Route::get('/stories/{story:slug}', [StoryController::class, 'show']);
 
 Route::middleware('auth')->group(function () {
 

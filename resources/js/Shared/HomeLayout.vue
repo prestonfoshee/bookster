@@ -1,24 +1,66 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUpdated, onBeforeUpdate, watch } from 'vue'
 import { usePage } from '@inertiajs/inertia-vue3'
 import Nav from './Nav.vue'
 import AuthButton from './AuthButton.vue'
+import AuthFlashMessage from './AuthFlashMessage.vue'
 import Footer from '../Pages/Home/Footer.vue'
 import UserIcon from './UserIcon.vue'
 
 const props = defineProps({
-    auth: Object
+    auth: Object,
+    flash: Object
 })
+
+// const showFlashMessage = ref(false)
+// const flashMessage = ref(props.flash.message)
+
+// watch(() => flashMessage.value, (curr, prev) => {
+//     curr = true
+//     setTimeout(() => (curr = flase), 3000)
+// },
+// { deep: true }
+// )
+
+// watch(flashMessage, (curr, prev) => {
+//     showFlashMessage.value = true
+// },
+// { deep: true }
+// )
+
+// onMounted(() => {
+//     console.log(flashMessage.value)
+// })
+
+// watch(props.flash.message, )
+
+// onMounted (() => {
+//     showFlashMessage.value = true
+//     setTimeout(() => (showFlashMessage.value = false), 2500)
+// })
+
+// onUpdated (() => {
+//     showFlashMessage.value = true
+//     setTimeout(() => (showFlashMessage.value = false), 2500)
+// })
+
+// onUpdated (() => {
+//     showFlashMessage.value = false ? setTimeout(() => (showFlashMessage.value = false), 2500) : showFlashMessage.value = false
+//     if (showFlashMessage.value = false) {
+//         showFlashMessage.value = true
+//         setTimeout(() => (showFlashMessage.value = false), 2500)
+//     }
+// })
 
 </script>
 
 <template>
-    <div class="flex justify-center relative">
-        <div v-if="$page.props.flash.message" class="absolute flex justify-center items-center text-center whitespace-nowrap top-32 text-sm font-poppins bg-stone-200 border-2 border-main-orange text-main-orange rounded shadow-md px-12 py-4">{{ $page.props.flash.message }}</div>
-    </div>
+
+    <auth-flash-message :message="$page.props.flash.message" />
 
     <main class="min-h-screen space-y-10 bg-gradient-to-tr from-teal-300 to-orange-300 overflow-x-hidden">
-        <section class="flex flex-col flex-wrap justify-around items-center px-4 py-6 border-b border-neutral-400 gap-y-4 md:gap-y-0 md:flex-row md:justify-between md:px-16">
+        <section class="flex flex-col flex-wrap justify-around items-center px-4 py-6 gap-y-4 md:gap-y-0 md:flex-row md:justify-between md:px-16">
+            <!-- style="box-shadow: 0 8px 2px -4px #ABABAB;" -->
             <div class="flex justify-center items-center md:gap-x-0">
                 <div class="mr-2">
                     <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +75,7 @@ const props = defineProps({
 
             <div class="flex justify-center items-center gap-x-6">
                 <user-icon v-if="auth" />
-                <span v-if="auth" class="text-main-black text-sm text-center md:text-left font-poppins">Welcome back, {{ auth.user.username }}</span>
+                <span v-if="auth" class="text-main-black text-sm text-center md:text-left font-poppins">Howdy, {{ auth.user.username }}</span>
                 <AuthButton v-if="!auth" href="/login" :text="'Login'">
                     Login
                 </AuthButton>

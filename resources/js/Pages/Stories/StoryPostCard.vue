@@ -1,7 +1,7 @@
 <template>
-    <main class="flex flex-col justify-center gap-y-5 border-2 border-main-green rounded-lg p-4 lg:w-5/12">
+    <main class="flex flex-col justify-between gap-y-5 border-2 border-main-green rounded-lg p-4 lg:w-5/12">
         <div class="flex gap-x-3">
-            <category-button :category="story.category.name" />
+            <category-button :category="story.category" />
         </div>
         <div>
             <h2 class="text-2xl text-main-black font-poppins">{{ story.title }}</h2>
@@ -16,7 +16,7 @@
         </div>
         <div class="flex justify-between items-center">
             <author-card />
-            <read-more-button />
+            <read-more-button :slug="story.slug" />
         </div>
     </main>
 </template>

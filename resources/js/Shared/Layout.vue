@@ -4,6 +4,7 @@ import { usePage } from '@inertiajs/inertia-vue3'
 import Nav from './Nav.vue'
 import AuthButton from './AuthButton.vue'
 import Footer from '../Pages/Home/Footer.vue'
+import AuthFlashMessage from './AuthFlashMessage.vue'
 
 const props = defineProps({
     auth: Object
@@ -12,12 +13,13 @@ const props = defineProps({
 </script>
 
 <template>
-    <Head title="Learning Inertia" />
-    <div class="flex justify-center relative">
+    <Head title="Bookster" />
+    <auth-flash-message :message="$page.props.flash.message" />
+    <!-- <div class="flex justify-center relative">
         <div v-if="$page.props.flash.message" class="absolute flex justify-center items-center text-center whitespace-nowrap top-32 text-sm font-poppins bg-stone-200 border-2 border-main-orange text-main-orange rounded shadow-md px-12 py-4">{{ $page.props.flash.message }}</div>
-    </div>
+    </div> -->
     <main class="min-h-screen space-y-10 bg-gradient-to-tr from-teal-200 to-orange-300">
-        <section class="flex flex-wrap justify-around items-center px-4 py-6 border-b border-neutral-400 gap-y-4 md:gap-y-0 md:justify-between md:px-16">
+        <section class="flex flex-wrap justify-around items-center px-4 py-6 gap-y-4 md:gap-y-0 md:justify-between md:px-16">
             <div class="flex justify-center items-center md:gap-x-0">
                 <div class="mr-2">
                     <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">

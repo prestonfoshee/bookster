@@ -10,10 +10,16 @@ class StoryController extends Controller
 {
     public function index(Story $story)
         {
-
             return Inertia::render('Stories/Index', [
                 // 'posts' => $story->with('category')->select('title', 'excerpt', 'body', 'slug', 'category_id')->get()
-                'stories' => $story->with('category')->get()
+                'stories' => $story->with('category')->paginate(10)
             ]);
         }
+
+    public function show(Story $story)
+    {
+        return Inertia::render('Stories/Story', [
+            'story' => $story
+        ]);
+    }
 }
