@@ -16,6 +16,9 @@ class StoryController extends Controller
                 ->when($request->input('search'), function ($query, $search) {
                     $query->where('title', 'like', "%{$search}%");
                 })
+                ->when($request->input('categoryFilter'), function ($query, $categoryFilter) {
+                    $query->where('category_id', $categoryFilter);
+                })
                 ->with('category')
                 ->paginate(10)
                 ->withQueryString(),
