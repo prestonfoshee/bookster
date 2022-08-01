@@ -27,7 +27,7 @@ import AuthorCard from './AuthorCard.vue'
 import ReadMoreButton from './ReadMoreButton.vue'
 
 const props = defineProps({
-    story: Object,
+    story: Object
 })
 
 </script>

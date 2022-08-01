@@ -1030,10 +1030,12 @@ var map = {
 	],
 	"./Stories/Index": [
 		"./resources/js/Pages/Stories/Index.vue",
+		"/js/vendor",
 		"resources_js_Pages_Stories_Index_vue"
 	],
 	"./Stories/Index.vue": [
 		"./resources/js/Pages/Stories/Index.vue",
+		"/js/vendor",
 		"resources_js_Pages_Stories_Index_vue"
 	],
 	"./Stories/ReadMoreButton": [

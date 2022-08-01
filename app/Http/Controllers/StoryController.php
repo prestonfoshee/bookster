@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Story;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class StoryController extends Controller
 {
-    public function index(Story $story)
+    public function index(Story $story, Request $request)
         {
             return Inertia::render('Stories/Index', [
-                // 'posts' => $story->with('category')->select('title', 'excerpt', 'body', 'slug', 'category_id')->get()
-                'stories' => $story->with('category')->paginate(10)
+                'stories' => $story->query()
+                ->when($request->input('search'), function ($query, $search) {
+                    $query->where('title', 'like', "%{$search}%");
+                })
+                ->with('category')
+                ->paginate(10)
+                ->withQueryString(),
+
+                'filters' => $request->only(['search'])
             ]);
         }
 
