@@ -23,7 +23,11 @@ class StoryController extends Controller
                 ->paginate(10)
                 ->withQueryString(),
 
-                'filters' => $request->only(['search'])
+                'filters' => [
+                    'search' => $request->input('search'),
+                    'categoryFilter' => $request->input('categoryFilter')
+                ]
+                // 'filters' => $request->only(['search', 'categoryFilter'])
             ]);
         }
 

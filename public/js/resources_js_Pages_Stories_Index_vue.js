@@ -97,15 +97,26 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var props = __props;
-    var categories = ['Fantasy', 'Sci-Fi', 'History', 'Technology'];
-    var categoryFilter = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
+    var categories = [{
+      name: 'Fantasy',
+      id: 1
+    }, {
+      name: 'Sci-Fi',
+      id: 2
+    }, {
+      name: 'History',
+      id: 3
+    }, {
+      name: 'Technology',
+      id: 4
+    }];
+    var categoryFilter = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(props.filters.categoryFilter);
     var search = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(props.filters.search);
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(search, lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default()(function (value) {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
         search: value
       }, {
-        preserveState: true,
-        replace: true
+        preserveState: true
       });
     }, 300));
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(categoryFilter, function (oldValue, value) {
@@ -122,6 +133,9 @@ __webpack_require__.r(__webpack_exports__);
 
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
         categoryFilter: value
+      }, {
+        preserveState: true,
+        replace: true
       });
     }); // const topSection = props.stories.slice(0, 4)
 
@@ -133,6 +147,7 @@ __webpack_require__.r(__webpack_exports__);
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       watch: vue__WEBPACK_IMPORTED_MODULE_0__.watch,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
+      watchEffect: vue__WEBPACK_IMPORTED_MODULE_0__.watchEffect,
       Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia,
       debounce: (lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default()),
       StoryPostCard: _StoryPostCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -331,21 +346,13 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_3 = {
   "class": "w-1/3 flex justify-center gap-x-4"
 };
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "",
-  disabled: "",
-  selected: ""
-}, "Category", -1
-/* HOISTED */
-);
-
-var _hoisted_5 = ["textContent"];
-var _hoisted_6 = {
+var _hoisted_4 = {
   "class": "flex flex-wrap gap-10 justify-center lg:max-w-screen-2xl"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
+
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Stories"
@@ -358,24 +365,34 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "rounded-full px-5 py-3 bg-main-off-white focus:outline-none"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.search]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.search]]), $setup.props.filters.categoryFilter ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
+    key: 0,
+    type: "hidden",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $setup.categoryFilter = $event;
-    }),
-    "class": "rounded-full px-5 py-3 bg-main-off-white focus:outline-none"
-  }, [_hoisted_4, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.categories, function (category) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-      key: category.id,
-      textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category),
-      "aria-placeholder": "Categories"
-    }, null, 8
-    /* PROPS */
-    , _hoisted_5);
+      return $setup.search = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.search]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.categories, function (category) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+      key: category.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+      href: '/stories?categoryFilter=' + category.id
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.name), 1
+        /* TEXT */
+        )];
+      }),
+      _: 2
+      /* DYNAMIC */
+
+    }, 1032
+    /* PROPS, DYNAMIC_SLOTS */
+    , ["href"])]);
   }), 64
   /* STABLE_FRAGMENT */
-  ))], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.categoryFilter]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.stories.data, function (story) {
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.stories.data, function (story) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["StoryPostCard"], {
       key: story.id,
       story: story

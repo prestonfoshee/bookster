@@ -7,10 +7,11 @@
         </div>
         <div class="w-1/3 flex justify-center gap-x-4">
             <input type="text" v-model="search" placeholder="Find a story..." class="rounded-full px-5 py-3 bg-main-off-white focus:outline-none">
-            <select v-model="categoryFilter" class="rounded-full px-5 py-3 bg-main-off-white focus:outline-none">
-                <option value="" disabled selected>Category</option>
-                <option v-for="category in categories" :key="category.id" v-text="category" aria-placeholder="Categories"></option>
-            </select>
+            <input v-if="props.filters.categoryFilter" type="hidden" v-model="search">
+
+            <ul>
+                <li v-for="category in categories" :key="category.id"><Link :href="'/stories?categoryFilter=' + category.id">{{ category.name }}</Link></li>
+            </ul>
         </div>
         <section class="flex flex-wrap gap-10 justify-center lg:max-w-screen-2xl">
             <story-post-card v-for="story in stories.data" :key="story.id" :story="story" />
@@ -20,7 +21,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, watchEffect } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
 import debounce from 'lodash/debounce'
 import StoryPostCard from './StoryPostCard.vue'
@@ -32,22 +33,34 @@ const props = defineProps({
 })
 
 const categories = [
-    'Fantasy',
-    'Sci-Fi',
-    'History',
-    'Technology'
+    {
+    name: 'Fantasy',
+    id: 1
+    },
+    {
+    name: 'Sci-Fi',
+    id: 2
+    },
+    {
+    name: 'History',
+    id: 3
+    },
+    {
+    name: 'Technology',
+    id: 4
+    }
 ]
 
-const categoryFilter = ref('')
+const categoryFilter = ref(props.filters.categoryFilter)
 
 const search = ref(props.filters.search)
 
 watch(search, debounce((value) => {
     Inertia.get('/stories',
     { search: value },
-    { preserveState: true,
-    replace: true })
-}, 300))
+    { preserveState: true, })
+}, 300)
+)
 
 watch(categoryFilter, (oldValue, value) => {
     if (oldValue === 'Fantasy') {
@@ -66,7 +79,9 @@ watch(categoryFilter, (oldValue, value) => {
     // console.log(value)
 
     Inertia.get('/stories',
-    { categoryFilter: value })
+    { categoryFilter: value },
+    { preserveState:true,
+    replace: true })
 })
 
 // const topSection = props.stories.slice(0, 4)
