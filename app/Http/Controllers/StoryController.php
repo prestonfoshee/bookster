@@ -9,25 +9,37 @@ use Inertia\Inertia;
 
 class StoryController extends Controller
 {
-    public function index(Story $story, Request $request)
+    public function index(Request $request)
         {
-            return Inertia::render('Stories/Index', [
-                'stories' => $story->query()
-                ->when($request->input('search'), function ($query, $search) {
-                    $query->where('title', 'like', "%{$search}%");
-                })
-                ->when($request->input('categoryFilter'), function ($query, $categoryFilter) {
-                    $query->where('category_id', $categoryFilter);
-                })
-                ->with('category')
-                ->paginate(10)
-                ->withQueryString(),
+            $search = $request->get('search');
+            $categoryFilter = $request->get('categoryFilter');
 
+            $query = Story::query();
+
+            if ($request->has('search') && $request->has('categoryFilter')) {
+                if ($categoryFilter == 0) {
+                    $query->where('title', 'like', '%' . $search . '%');
+                } else {
+                    $query->where('title', 'like', '%' . $search . '%')
+                          ->where('category_id', $categoryFilter);
+                }
+            } elseif ($request->has('search') && !$request->has('categoryFilter')) {
+                $query->where('title', 'like', '%' . $search . '%');
+            } elseif ($request->has('categoryFilter') && !$request->has('search')) {
+                if ($categoryFilter != 0) {
+                    $query->where('category_id', $categoryFilter);
+                }
+            }
+
+            $stories = $query->with('category')->paginate(10);
+
+            return inertia('Stories/Index', [
+                'stories' => $stories,
                 'filters' => [
                     'search' => $request->input('search'),
-                    'categoryFilter' => $request->input('categoryFilter')
-                ]
-                // 'filters' => $request->only(['search', 'categoryFilter'])
+                    'categoryFilter' => $request->input('categoryFilter') ?? 0
+                ],
+                'categories' => Category::all()->push(['id' => 0, 'name' => 'All categories'])
             ]);
         }
 

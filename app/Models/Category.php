@@ -10,7 +10,7 @@ class Category extends Model
     use HasFactory;
 
     public function stories()
-        {
-            return $this->hasMany(Story::class);
-        }
+    {
+        return $this->hasMany(Story::class);
+    }
 }
