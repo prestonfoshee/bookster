@@ -49,9 +49,10 @@ const state = reactive({
 })
 
 watch(() => state.searchQuery, debounce((value) => {
-    if (state.selectedCategory === 0) {
+    if (state.selectedCategory === 0 && value != '') {
         Inertia.get('/stories', {search: state.searchQuery}, {preserveState: true,})
-
+    } else if (value === '') {
+        Inertia.get('/stories', {}, {preserveState: true})
     } else {
         Inertia.get('/stories', {search: state.searchQuery, categoryFilter: state.selectedCategory}, {preserveState: true})
     }
@@ -59,18 +60,33 @@ watch(() => state.searchQuery, debounce((value) => {
 )
 
 watch(() => state.selectedCategory, (value) => {
-    console.log(value)
+    // console.log(value)
     // console.log('value:', categoryMap[value])
     // const categoryValue = categoryMap[value] || 0
 
-    if (state.searchQuery != null) {
-        Inertia.get(`/stories?search=${state.searchQuery}&categoryFilter=${value}`, {}, {preserveState: true})
-    }
-    else if (value == 0) {
-        Inertia.get('/stories', {}, {preserveState: true})
-    }
-    else {
-        Inertia.get(`/stories?categoryFilter=${value}`, {}, {preserveState: true,})
+    if (value === 0 && state.searchQuery != null) {
+        Inertia.get('/stories',{
+            search: state.searchQuery
+        },
+        {
+            preserveState: true
+        })
+    } else if (value === 0 && state.searchQuery == null) {
+        Inertia.get('/stories', {
+            categoryFilter: value
+        },
+        {
+            preserveState: true,
+        })
+    } else {
+        Inertia.get('/stories',
+        {
+            search: state.searchQuery,
+            categoryFilter: value
+        },
+        {
+            preserveState: true
+        })
     }
 })
 

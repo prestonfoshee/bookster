@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use App\Models\Library;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
@@ -16,5 +17,10 @@ class Story extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->diffForHumans();
     }
 }

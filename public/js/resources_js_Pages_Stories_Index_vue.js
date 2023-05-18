@@ -91,63 +91,84 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     stories: Object,
-    filters: Object
+    filters: Object,
+    categories: Object
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
     var props = __props;
-    var categories = [{
-      name: 'Fantasy',
-      id: 1
-    }, {
-      name: 'Sci-Fi',
-      id: 2
-    }, {
-      name: 'History',
-      id: 3
-    }, {
-      name: 'Technology',
-      id: 4
-    }];
-    var categoryFilter = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(props.filters.categoryFilter);
-    var search = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(props.filters.search);
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(search, lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default()(function (value) {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
-        search: value
-      }, {
-        preserveState: true
-      });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      state.selectedCategory = props.filters.categoryFilter;
+    });
+    var categoryMap = {
+      'Fantasy': 1,
+      'Sci-Fi': 2,
+      'History': 3,
+      'Technology': 4
+    };
+    var state = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
+      items: [],
+      categories: props.categories,
+      searchQuery: props.filters.search,
+      selectedCategory: props.filters.categoryFilter
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(function () {
+      return state.searchQuery;
+    }, lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default()(function (value) {
+      if (state.selectedCategory === 0 && value != '') {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
+          search: state.searchQuery
+        }, {
+          preserveState: true
+        });
+      } else if (value === '') {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {}, {
+          preserveState: true
+        });
+      } else {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
+          search: state.searchQuery,
+          categoryFilter: state.selectedCategory
+        }, {
+          preserveState: true
+        });
+      }
     }, 300));
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(categoryFilter, function (oldValue, value) {
-      if (oldValue === 'Fantasy') {
-        value = 1;
-      } else if (oldValue === 'Sci-Fi') {
-        value = 2;
-      } else if (oldValue === 'History') {
-        value = 3;
-      } else if (oldValue === 'Technology') {
-        value = 4;
-      } // console.log(value)
-
-
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
-        categoryFilter: value
-      }, {
-        preserveState: true,
-        replace: true
-      });
-    }); // const topSection = props.stories.slice(0, 4)
-
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(function () {
+      return state.selectedCategory;
+    }, function (value) {
+      // console.log(value)
+      // console.log('value:', categoryMap[value])
+      // const categoryValue = categoryMap[value] || 0
+      if (value === 0 && state.searchQuery != null) {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
+          search: state.searchQuery
+        }, {
+          preserveState: true
+        });
+      } else if (value === 0 && state.searchQuery == null) {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
+          categoryFilter: value
+        }, {
+          preserveState: true
+        });
+      } else {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
+          search: state.searchQuery,
+          categoryFilter: value
+        }, {
+          preserveState: true
+        });
+      }
+    });
     var __returned__ = {
+      categoryMap: categoryMap,
       props: props,
-      categories: categories,
-      categoryFilter: categoryFilter,
-      search: search,
-      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      state: state,
       watch: vue__WEBPACK_IMPORTED_MODULE_0__.watch,
+      reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
-      watchEffect: vue__WEBPACK_IMPORTED_MODULE_0__.watchEffect,
       Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia,
       debounce: (lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default()),
       StoryPostCard: _StoryPostCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -346,53 +367,41 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_3 = {
   "class": "w-1/3 flex justify-center gap-x-4"
 };
-var _hoisted_4 = {
+var _hoisted_4 = ["value"];
+var _hoisted_5 = {
   "class": "flex flex-wrap gap-10 justify-center lg:max-w-screen-2xl"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
-
-  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Stories"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $setup.search = $event;
+      return $setup.state.searchQuery = $event;
     }),
     placeholder: "Find a story...",
-    "class": "rounded-full px-5 py-3 bg-main-off-white focus:outline-none"
+    "class": "rounded-md px-5 py-3 bg-main-off-white"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.search]]), $setup.props.filters.categoryFilter ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
-    key: 0,
-    type: "hidden",
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.state.searchQuery]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $setup.search = $event;
-    })
-  }, null, 512
+      return $setup.state.selectedCategory = $event;
+    }),
+    "class": "rounded-md px-3 py-3 bg-main-off-white"
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.state.categories, function (category) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+      key: category.id,
+      value: category.id
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.name), 9
+    /* TEXT, PROPS */
+    , _hoisted_4);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 512
   /* NEED_PATCH */
-  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.search]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.categories, function (category) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
-      key: category.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-      href: '/stories?categoryFilter=' + category.id
-    }, {
-      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.name), 1
-        /* TEXT */
-        )];
-      }),
-      _: 2
-      /* DYNAMIC */
-
-    }, 1032
-    /* PROPS, DYNAMIC_SLOTS */
-    , ["href"])]);
-  }), 64
-  /* STABLE_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.stories.data, function (story) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.state.selectedCategory]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.stories.data, function (story) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["StoryPostCard"], {
       key: story.id,
       story: story
@@ -468,13 +477,9 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "text-2xl text-main-black font-poppins"
 };
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_4 = {
   "class": "text-base text-gray-500 font-light font-poppins"
-}, "Published 1 day ago")], -1
-/* HOISTED */
-);
-
+};
 var _hoisted_5 = {
   "class": "mb-8"
 };
@@ -491,7 +496,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["category"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.story.title), 1
   /* TEXT */
-  )]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.story.body), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.story.created_at), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.story.body), 1
   /* TEXT */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthorCard"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ReadMoreButton"], {
     slug: $props.story.slug

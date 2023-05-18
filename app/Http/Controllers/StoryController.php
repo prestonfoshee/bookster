@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Story;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -32,6 +33,13 @@ class StoryController extends Controller
             }
 
             $stories = $query->with('category')->paginate(10);
+
+            foreach ($stories as $story) {
+                // $humanTimeDiff = Carbon::parse($story->created_at)->diffForHumans();
+                // echo $humanTimeDiff;
+                // $story->setAttribute('created_at', $humanTimeDiff);
+                echo $story->created_at;
+            }
 
             return inertia('Stories/Index', [
                 'stories' => $stories,

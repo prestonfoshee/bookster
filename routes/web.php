@@ -34,8 +34,6 @@ Route::middleware('guest')->group(function () {
         Auth::login($user);
 
         return redirect()->intended()->with('message', 'Account created');
-
-        return redirect('/users');
     });
 });
 

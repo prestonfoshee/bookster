@@ -7,7 +7,7 @@
             <h2 class="text-2xl text-main-black font-poppins">{{ story.title }}</h2>
         </div>
         <div>
-            <span class="text-base text-gray-500 font-light font-poppins">Published 1 day ago</span>
+            <span class="text-base text-gray-500 font-light font-poppins">{{ story.created_at }}</span>
         </div>
         <div class="mb-8">
             <p class="text-base text-main-black font-poppins">
