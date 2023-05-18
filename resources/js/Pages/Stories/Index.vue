@@ -49,7 +49,7 @@ const state = reactive({
 })
 
 watch(() => state.searchQuery, debounce((value) => {
-    if (state.selectedCategory === 0 && value != '') {
+    if (state.selectedCategory === 5 && value != '') {
         Inertia.get('/stories', {search: state.searchQuery}, {preserveState: true,})
     } else if (value === '') {
         Inertia.get('/stories', {}, {preserveState: true})
@@ -64,14 +64,14 @@ watch(() => state.selectedCategory, (value) => {
     // console.log('value:', categoryMap[value])
     // const categoryValue = categoryMap[value] || 0
 
-    if (value === 0 && state.searchQuery != null) {
+    if (value === 5 && state.searchQuery != null) {
         Inertia.get('/stories',{
             search: state.searchQuery
         },
         {
             preserveState: true
         })
-    } else if (value === 0 && state.searchQuery == null) {
+    } else if (value === 5 && state.searchQuery == null) {
         Inertia.get('/stories', {
             categoryFilter: value
         },

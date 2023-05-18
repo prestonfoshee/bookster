@@ -116,7 +116,7 @@ __webpack_require__.r(__webpack_exports__);
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(function () {
       return state.searchQuery;
     }, lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default()(function (value) {
-      if (state.selectedCategory === 0 && value != '') {
+      if (state.selectedCategory === 5 && value != '') {
         _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
           search: state.searchQuery
         }, {
@@ -141,13 +141,13 @@ __webpack_require__.r(__webpack_exports__);
       // console.log(value)
       // console.log('value:', categoryMap[value])
       // const categoryValue = categoryMap[value] || 0
-      if (value === 0 && state.searchQuery != null) {
+      if (value === 5 && state.searchQuery != null) {
         _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
           search: state.searchQuery
         }, {
           preserveState: true
         });
-      } else if (value === 0 && state.searchQuery == null) {
+      } else if (value === 5 && state.searchQuery == null) {
         _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/stories', {
           categoryFilter: value
         }, {

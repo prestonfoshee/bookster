@@ -18,7 +18,7 @@ class StoryController extends Controller
             $query = Story::query();
 
             if ($request->has('search') && $request->has('categoryFilter')) {
-                if ($categoryFilter == 0) {
+                if ($categoryFilter == 5) {
                     $query->where('title', 'like', '%' . $search . '%');
                 } else {
                     $query->where('title', 'like', '%' . $search . '%')
@@ -27,27 +27,21 @@ class StoryController extends Controller
             } elseif ($request->has('search') && !$request->has('categoryFilter')) {
                 $query->where('title', 'like', '%' . $search . '%');
             } elseif ($request->has('categoryFilter') && !$request->has('search')) {
-                if ($categoryFilter != 0) {
+                if ($categoryFilter != 5) {
                     $query->where('category_id', $categoryFilter);
                 }
             }
 
             $stories = $query->with('category')->paginate(10);
 
-            foreach ($stories as $story) {
-                // $humanTimeDiff = Carbon::parse($story->created_at)->diffForHumans();
-                // echo $humanTimeDiff;
-                // $story->setAttribute('created_at', $humanTimeDiff);
-                echo $story->created_at;
-            }
-
             return inertia('Stories/Index', [
                 'stories' => $stories,
                 'filters' => [
                     'search' => $request->input('search'),
-                    'categoryFilter' => $request->input('categoryFilter') ?? 0
+                    'categoryFilter' => $request->input('categoryFilter') ?? 5
                 ],
-                'categories' => Category::all()->push(['id' => 0, 'name' => 'All categories'])
+                'categories' => Category::all()
+
             ]);
         }
 
