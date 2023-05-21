@@ -13,7 +13,7 @@
         <section class="flex flex-wrap gap-10 justify-center lg:max-w-screen-2xl">
             <story-post-card v-for="story in stories.data" :key="story.id" :story="story" />
         </section>
-        <pagination :links="stories.links" />
+        <pagination :links="stories.links" :queryString="" />
     </main>
 </template>
 

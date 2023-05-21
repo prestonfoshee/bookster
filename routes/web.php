@@ -15,26 +15,14 @@ Route::get('/', function () {
 Route::get('/stories', [StoryController::class, 'index']);
 
 Route::middleware('guest')->group(function () {
-    Route::get('login', [LoginController::class, 'create'])->name('login');
+    Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'store']);
 
     Route::get('/signup', function () {
         return Inertia::render('Users/Create');
     }); // or ->middleware('can:create, App\Models\User')
 
-    Route::post('/signup', function (Request $request) {
-        $attributes = $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'email'],
-            'password' => 'required',
-        ]);
-
-        $user = User::create($attributes);
-
-        Auth::login($user);
-
-        return redirect()->intended()->with('message', 'Account created');
-    });
+    Route::post('/signup', [LoginController::class, 'create']);
 });
 
 Route::get('/stories/{story:slug}', [StoryController::class, 'show']);
